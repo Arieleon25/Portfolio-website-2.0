@@ -96,7 +96,7 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 16 / 10;
-  background-color: var(--color-bg-alt);
+  background-color: var(--color-white);
 }
 
 .card__image img {
@@ -338,12 +338,17 @@
   display: flex;
 }
 
-.video-modal video {
+.video-modal video,
+.video-modal img#image-player {
   max-width: 75vw;
   max-height: 85vh;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-xl);
   cursor: default;
+}
+
+.video-modal img#image-player {
+  object-fit: contain;
 }
 
 .video-modal__nav {
@@ -392,17 +397,37 @@
 }
 
 @media (max-width: 768px) {
+  .video-modal video,
+  .video-modal img#image-player {
+    max-width: 92vw;
+  }
+
   .video-modal__nav {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
   }
 
   .video-modal__nav--prev {
-    left: var(--space-sm);
+    left: var(--space-xs);
   }
 
   .video-modal__nav--next {
-    right: var(--space-sm);
+    right: var(--space-xs);
+  }
+
+  .btn {
+    padding: 0.875rem 1.75rem;
+    min-height: 44px;
+  }
+
+  .btn--sm {
+    padding: 0.625rem 1rem;
+    min-height: 44px;
+  }
+
+  .filter-btn {
+    padding: 0.625rem 1.25rem;
+    min-height: 44px;
   }
 }
 

@@ -11,16 +11,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (navToggle && mainNav) {
     navToggle.addEventListener('click', function () {
+      var isOpen = mainNav.classList.toggle('main-nav--open');
       navToggle.classList.toggle('nav-toggle--active');
-      mainNav.classList.toggle('main-nav--open');
+      // Lock body scroll when mobile menu is open
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close nav when clicking a link (mobile)
+    // Close nav when clicking a link (mobile) — but not dropdown toggles
     mainNav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 768 && !this.classList.contains('main-nav__dropdown-toggle')) {
           navToggle.classList.remove('nav-toggle--active');
           mainNav.classList.remove('main-nav--open');
+          document.body.style.overflow = '';
         }
       });
     });
@@ -86,96 +89,142 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* ---- E-Commerce Video Modal with Slider ---- */
-  const videoContainers = document.querySelectorAll('.ecom-video-trigger');
-  const videoModal = document.getElementById('video-modal');
+  /* ---- E-Commerce Media Modal with Slider (videos + images) ---- */
+  const mediaContainers = document.querySelectorAll('.ecom-video-trigger');
+  const mediaModal = document.getElementById('video-modal');
   const videoPlayer = document.getElementById('video-player');
-  const videoPrev = document.getElementById('video-prev');
-  const videoNext = document.getElementById('video-next');
-  const videoCounter = document.getElementById('video-counter');
+  const imagePlayer = document.getElementById('image-player');
+  const mediaPrev = document.getElementById('video-prev');
+  const mediaNext = document.getElementById('video-next');
+  const mediaCounter = document.getElementById('video-counter');
 
-  var currentVideos = [];
-  var currentVideoIndex = 0;
+  var currentMedia = [];
+  var currentMediaIndex = 0;
+  var currentMediaType = 'video'; // 'video' or 'image'
 
-  function loadVideo(index) {
-    if (!videoPlayer || !currentVideos.length) return;
-    currentVideoIndex = index;
-    videoPlayer.src = currentVideos[index];
-    videoPlayer.play();
-    updateSliderUI();
+  function loadMedia(index) {
+    if (!currentMedia.length) return;
+    currentMediaIndex = index;
+
+    if (currentMediaType === 'image') {
+      videoPlayer.style.display = 'none';
+      videoPlayer.pause();
+      videoPlayer.src = '';
+      imagePlayer.src = currentMedia[index];
+      imagePlayer.style.display = 'block';
+    } else {
+      imagePlayer.style.display = 'none';
+      imagePlayer.src = '';
+      videoPlayer.style.display = 'block';
+      videoPlayer.src = currentMedia[index];
+      videoPlayer.play();
+    }
+    updateMediaUI();
   }
 
-  function updateSliderUI() {
-    if (!videoCounter) return;
-    if (currentVideos.length > 1) {
-      videoCounter.textContent = (currentVideoIndex + 1) + ' / ' + currentVideos.length;
-      videoCounter.style.display = 'block';
-      if (videoPrev) videoPrev.style.display = 'flex';
-      if (videoNext) videoNext.style.display = 'flex';
+  function updateMediaUI() {
+    if (!mediaCounter) return;
+    if (currentMedia.length > 1) {
+      mediaCounter.textContent = (currentMediaIndex + 1) + ' / ' + currentMedia.length;
+      mediaCounter.style.display = 'block';
+      if (mediaPrev) mediaPrev.style.display = 'flex';
+      if (mediaNext) mediaNext.style.display = 'flex';
     } else {
-      videoCounter.style.display = 'none';
-      if (videoPrev) videoPrev.style.display = 'none';
-      if (videoNext) videoNext.style.display = 'none';
+      mediaCounter.style.display = 'none';
+      if (mediaPrev) mediaPrev.style.display = 'none';
+      if (mediaNext) mediaNext.style.display = 'none';
     }
   }
 
   function closeModal() {
-    if (!videoModal || !videoPlayer) return;
-    videoModal.classList.remove('video-modal--open');
-    videoPlayer.pause();
-    videoPlayer.src = '';
-    currentVideos = [];
-    currentVideoIndex = 0;
+    if (!mediaModal) return;
+    mediaModal.classList.remove('video-modal--open');
+    if (videoPlayer) { videoPlayer.pause(); videoPlayer.src = ''; }
+    if (imagePlayer) { imagePlayer.src = ''; imagePlayer.style.display = 'none'; }
+    currentMedia = [];
+    currentMediaIndex = 0;
   }
 
-  if (videoContainers.length > 0 && videoModal && videoPlayer) {
-    videoContainers.forEach(function (container) {
+  if (mediaContainers.length > 0 && mediaModal) {
+    mediaContainers.forEach(function (container) {
       container.addEventListener('click', function () {
+        var imageAttr = this.getAttribute('data-images');
         var videoAttr = this.getAttribute('data-videos') || this.getAttribute('data-video');
-        currentVideos = videoAttr.split(',').map(function (v) { return v.trim(); });
-        currentVideoIndex = 0;
-        videoModal.classList.add('video-modal--open');
-        loadVideo(0);
+
+        if (imageAttr) {
+          currentMediaType = 'image';
+          currentMedia = imageAttr.split(',').map(function (v) { return v.trim(); });
+        } else if (videoAttr) {
+          currentMediaType = 'video';
+          currentMedia = videoAttr.split(',').map(function (v) { return v.trim(); });
+        }
+
+        currentMediaIndex = 0;
+        mediaModal.classList.add('video-modal--open');
+        loadMedia(0);
       });
     });
 
     // Previous / Next buttons
-    if (videoPrev) {
-      videoPrev.addEventListener('click', function (e) {
+    if (mediaPrev) {
+      mediaPrev.addEventListener('click', function (e) {
         e.stopPropagation();
-        if (currentVideos.length > 1) {
-          loadVideo((currentVideoIndex - 1 + currentVideos.length) % currentVideos.length);
+        if (currentMedia.length > 1) {
+          loadMedia((currentMediaIndex - 1 + currentMedia.length) % currentMedia.length);
         }
       });
     }
 
-    if (videoNext) {
-      videoNext.addEventListener('click', function (e) {
+    if (mediaNext) {
+      mediaNext.addEventListener('click', function (e) {
         e.stopPropagation();
-        if (currentVideos.length > 1) {
-          loadVideo((currentVideoIndex + 1) % currentVideos.length);
+        if (currentMedia.length > 1) {
+          loadMedia((currentMediaIndex + 1) % currentMedia.length);
         }
       });
     }
 
     // Close on backdrop click
-    videoModal.addEventListener('click', function (e) {
-      if (e.target === videoModal || e.target.classList.contains('video-modal__close')) {
+    mediaModal.addEventListener('click', function (e) {
+      if (e.target === mediaModal || e.target.classList.contains('video-modal__close')) {
         closeModal();
       }
     });
 
     // Close on Escape, arrow keys for prev/next
     document.addEventListener('keydown', function (e) {
-      if (!videoModal.classList.contains('video-modal--open')) return;
+      if (!mediaModal.classList.contains('video-modal--open')) return;
       if (e.key === 'Escape') {
         closeModal();
-      } else if (e.key === 'ArrowLeft' && currentVideos.length > 1) {
-        loadVideo((currentVideoIndex - 1 + currentVideos.length) % currentVideos.length);
-      } else if (e.key === 'ArrowRight' && currentVideos.length > 1) {
-        loadVideo((currentVideoIndex + 1) % currentVideos.length);
+      } else if (e.key === 'ArrowLeft' && currentMedia.length > 1) {
+        loadMedia((currentMediaIndex - 1 + currentMedia.length) % currentMedia.length);
+      } else if (e.key === 'ArrowRight' && currentMedia.length > 1) {
+        loadMedia((currentMediaIndex + 1) % currentMedia.length);
       }
     });
+
+    // Swipe gesture support for mobile
+    var touchStartX = 0;
+    var touchStartY = 0;
+
+    mediaModal.addEventListener('touchstart', function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    mediaModal.addEventListener('touchend', function (e) {
+      var touchEndX = e.changedTouches[0].screenX;
+      var diffX = touchStartX - touchEndX;
+      var diffY = Math.abs(touchStartY - e.changedTouches[0].screenY);
+
+      if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY && currentMedia.length > 1) {
+        if (diffX > 0) {
+          loadMedia((currentMediaIndex + 1) % currentMedia.length);
+        } else {
+          loadMedia((currentMediaIndex - 1 + currentMedia.length) % currentMedia.length);
+        }
+      }
+    }, { passive: true });
   }
 
 });

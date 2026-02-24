@@ -131,7 +131,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--space-sm);
+  padding: 12px;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 .nav-toggle__bar {
@@ -245,8 +247,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-full);
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-white);
@@ -330,4 +332,19 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Extra-small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .site-footer {
+    padding: var(--space-2xl) 0 var(--space-lg);
+  }
 }
