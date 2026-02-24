@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Savora AI — Fine-Tuned Culinary Intelligence System by Arie Eskinazi">
+  <meta name="author" content="Arie Eskinazi">
+  <title>Savora AI — App Development Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+  <!-- Resume Bar -->
+  <div class="resume-bar">
+    <a href="PDFs/ArieE-Resume-SG-2023.pdf" target="_blank">Click here to see my Resume</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Arie Eskinazi</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav class="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__item"><a href="index.html" class="main-nav__link">Home</a></li>
+            <li class="main-nav__item"><a href="E-commerce_webpage-VV.html" class="main-nav__link">E-Commerce</a></li>
+            <li class="main-nav__item">
+              <a href="javascript:void(0)" class="main-nav__link main-nav__dropdown-toggle">Programming</a>
+              <ul class="main-nav__dropdown">
+                <li><a href="SoftwareDevelopment_webpage.html" class="main-nav__dropdown-link">Software Development</a></li>
+                <li><a href="VideoGames_webpage.html" class="main-nav__dropdown-link">Game Development</a></li>
+                <li><a href="AppDevelopment_webpage.html" class="main-nav__dropdown-link">App Development</a></li>
+              </ul>
+            </li>
+            <li class="main-nav__item"><a href="VideoProduction_webpage.html" class="main-nav__link">Video Production</a></li>
+            <li class="main-nav__item"><a href="index.html#contact" class="main-nav__link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <span class="page-header__label">App Development</span>
+      <h1 class="page-header__title">Savora AI</h1>
+      <p class="page-header__desc">A proprietary culinary intelligence system — fine-tuned to think like a chef.</p>
+    </div>
+  </div>
+
+  <!-- Project Detail -->
+  <section class="section">
+    <div class="container">
+      <div class="project-detail">
+
+        <!-- Breadcrumb -->
+        <nav style="margin-bottom: var(--space-xl); font-size: var(--font-size-sm); color: var(--color-text-light);">
+          <a href="index.html">Home</a> &rsaquo;
+          <a href="AppDevelopment_webpage.html">App Development</a> &rsaquo;
+          <span style="color: var(--color-text);">Savora AI</span>
+        </nav>
+
+        <!-- Hero Image -->
+        <div class="project-detail__hero-img" style="background-color: #F0F9FF; display: flex; align-items: center; justify-content: center; padding: var(--space-3xl);">
+          <img src="Images/Default-Images/SavoraAILogo.png" alt="Savora AI Logo" style="max-height: 220px; object-fit: contain;" onerror="this.parentElement.innerHTML='<div style=&quot;font-size:4rem;font-weight:700;color:#116CE4;text-align:center&quot;>Savora AI</div>'">
+        </div>
+
+        <h2 class="project-detail__title">Savora AI — Culinary Intelligence at Scale</h2>
+
+        <div class="project-detail__body">
+          <p>Savora AI is a proprietary culinary intelligence system built from the ground up. Fine-tuned on 37,000+ carefully curated training examples, it understands ingredients, flavor logic, cooking mechanics, and food safety at an expert level — going far beyond what a general-purpose LLM can achieve in the culinary domain.</p>
+
+          <h5>Why Fine-Tune?</h5>
+          <p>General-purpose language models like GPT-4 are impressive, but they lack deep domain expertise in culinary arts. They might suggest flavor combinations that don't work, miss critical food safety considerations, or generate recipes with incorrect cooking techniques. Savora AI was built to solve this — a model that thinks like a trained chef, not a generalist.</p>
+
+          <h5>Training Data Pipeline</h5>
+          <p><strong>37,000+ Training Examples:</strong> The training dataset was meticulously curated across multiple domains of culinary knowledge — ingredient interactions, flavor pairing science, cooking techniques, recipe generation, nutritional analysis, and food safety protocols.</p>
+
+          <p><strong>Multi-Format Data Sources:</strong> Training data was assembled from professional recipe databases, culinary textbooks, food science research, and expert chef knowledge. Each example was formatted as structured conversation pairs (system/user/assistant) optimized for the fine-tuning API.</p>
+
+          <p><strong>Quality Control:</strong> Every training example went through validation to ensure culinary accuracy, proper formatting, and consistent response patterns. Bad data was filtered out programmatically and through manual review.</p>
+
+          <h5>Model Architecture</h5>
+          <p><strong>Base Model:</strong> GPT-4o-mini — chosen for its balance of capability, speed, and cost-efficiency. The fine-tuned version retains the base model's reasoning abilities while gaining deep culinary domain expertise.</p>
+
+          <p><strong>Fine-Tuning Process:</strong> The model went through 5 iterative training versions, each improving on the previous one with expanded training data, better prompt engineering, and refined evaluation metrics. Training was performed using the OpenAI Fine-Tuning API with careful hyperparameter optimization.</p>
+
+          <p><strong>Versioning:</strong> Each model version was benchmarked against a held-out evaluation set covering recipe generation quality, ingredient safety checks, nutritional accuracy, and cultural authenticity of cuisine-specific recipes.</p>
+
+          <h5>Capabilities</h5>
+          <p><strong>Expert Recipe Generation:</strong> Given a set of ingredients, dietary constraints, and cuisine preferences, Savora AI generates complete, chef-quality recipes with accurate cook times, temperatures, and technique instructions.</p>
+
+          <p><strong>Flavor Intelligence:</strong> The model understands flavor compound interactions at a molecular level — it knows why certain ingredients pair well together and can suggest creative but scientifically sound flavor combinations.</p>
+
+          <p><strong>Food Safety Validation:</strong> Built-in awareness of allergens, cross-contamination risks, safe cooking temperatures, and ingredient storage guidelines. The model flags potential safety issues proactively.</p>
+
+          <p><strong>Nutritional Analysis:</strong> Accurate macro and micronutrient estimation for generated recipes, with the ability to optimize recipes for specific dietary goals (high-protein, low-carb, calorie targets, etc.).</p>
+
+          <p><strong>Cultural Authenticity:</strong> Trained on cuisine-specific techniques and traditions — it knows the difference between a proper Italian carbonara and a cream-based imitation, and respects culinary heritage in its recommendations.</p>
+
+          <h5>Integration Architecture</h5>
+          <p><strong>Backend API:</strong> FastAPI-based inference server that handles requests from the <a href="SavoraPort.html">Savora app</a>. The API manages prompt construction, model routing, response parsing, and caching.</p>
+
+          <p><strong>RAG Pipeline:</strong> Retrieval-Augmented Generation using vector search (embeddings) to pull relevant recipe context before generation. This grounds the model's responses in real recipe data and reduces hallucination.</p>
+
+          <p><strong>Hybrid Approach:</strong> The system combines the fine-tuned model with structured recipe database queries — using AI for creative generation and traditional search for precise lookups, giving users the best of both worlds.</p>
+
+          <h5>Results</h5>
+          <p>Savora AI consistently outperforms the base GPT-4o-mini model on culinary benchmarks: higher recipe accuracy scores, better ingredient safety detection, more culturally authentic cuisine generation, and significantly improved flavor pairing suggestions. The model powers all AI features in the Savora app ecosystem.</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="project-detail__actions">
+          <a href="SavoraPort.html" class="btn btn--primary">Learn about Savora App</a>
+        </div>
+
+        <!-- Back Link -->
+        <a href="AppDevelopment_webpage.html" class="project-detail__back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Back to App Development
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">Arie Eskinazi &middot; +1 (305) 206 2596</p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/in/arie-eskinazi/" target="_blank" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

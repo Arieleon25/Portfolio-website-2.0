@@ -1,0 +1,13 @@
+# Large media files (hosted separately / via Dropbox)
+Ecom-videos/
+Games/
+assets/
+vendor/
+Images/Default-Images/CameraVideo.mp4
+
+# Claude Code internal
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db

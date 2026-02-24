@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arie Eskinazi — E-Commerce Video Portfolio">
+  <meta name="author" content="Arie Eskinazi">
+  <title>Arie's E-Commerce Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/variables.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages.css">
+</head>
+<body>
+
+  <!-- Resume Bar -->
+  <div class="resume-bar">
+    PDF <a href="PDFs/Resume_VE_SD_AE-2023-Web.pdf" target="_blank">Portfolio</a>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Arie Eskinazi</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+        <nav class="main-nav">
+          <ul class="main-nav__list">
+            <li class="main-nav__item"><a href="index.html" class="main-nav__link">Home</a></li>
+            <li class="main-nav__item"><a href="E-commerce_webpage-VV.html" class="main-nav__link">E-Commerce</a></li>
+            <li class="main-nav__item">
+              <a href="javascript:void(0)" class="main-nav__link main-nav__dropdown-toggle">Programming</a>
+              <ul class="main-nav__dropdown">
+                <li><a href="SoftwareDevelopment_webpage.html" class="main-nav__dropdown-link">Software Development</a></li>
+                <li><a href="VideoGames_webpage.html" class="main-nav__dropdown-link">Game Development</a></li>
+                <li><a href="AppDevelopment_webpage.html" class="main-nav__dropdown-link">App Development</a></li>
+              </ul>
+            </li>
+            <li class="main-nav__item"><a href="VideoProduction_webpage.html" class="main-nav__link">Video Production</a></li>
+            <li class="main-nav__item"><a href="index.html#contact" class="main-nav__link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="container">
+      <span class="page-header__label">E-Commerce</span>
+      <h1 class="page-header__title">Paid Social Ads</h1>
+      <p class="page-header__desc">Brand advertisement videos for global e-commerce campaigns. <span style="opacity: 0.5;">Powered by VinciVision LLC</span></p>
+    </div>
+  </div>
+
+  <!-- E-Commerce Grid with Filters -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-btn filter-btn--active" data-filter="*">All Brands</button>
+        <button class="filter-btn" data-filter="favorite">My Favorite</button>
+      </div>
+      <div class="grid grid--3 ecom-grid">
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Albert-Ad-AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Albert-App.jpeg" alt="Albert" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Albert</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/AngryOrange_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/AngryOrange_560x420.png" alt="Angry Orange" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Angry Orange</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/BespokePost_ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/BespokePost-New.png" alt="BespokePost" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">BespokePost</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Betabrand.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/BetaBrand.png" alt="BetaBrand" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">BetaBrand</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Bubblybelle_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/BubblyBelle2.jpg" alt="Bubblybelle" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Bubblybelle</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Candid_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Candid_560x420.png" alt="Candid" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Candid</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/Cerebral_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Cerebral2.jpg" alt="Cerebral" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Cerebral</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Dave_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Dave_560x420.png" alt="Dave" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Dave</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/DrSquatch_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/DrSquatch_560x420.png" alt="DrSquatch" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">DrSquatch</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Ebulb_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Ebulb_560x420.png" alt="Ebulb" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Ebulb</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Everlywell_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Everlywell_560x420.png" alt="Everlywell" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Everlywell</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/Fabletics_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/fabletics-logo_560x420.png" alt="Fabletics" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Fabletics</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/FDR_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Freedom-Debt-Relief_560x420.png" alt="FDR" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">FDR</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/Freshly_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Freshly_560x420.png" alt="Freshly" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Freshly</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/FreshlyFit_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/FreshlyFit_560x420.png" alt="Freshly Fit" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Freshly Fit</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Hubble_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/hubble-contacts.png" alt="Hubble" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Hubble</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/IlMakiage_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/IL_MAKIAGE_Logo_560x420.png" alt="IlMakiage" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">IlMakiage</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/INH_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/INH-Logo_560x420.png" alt="INH" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">INH</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/IPSY_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Ipsy.png" alt="Ipsy" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Ipsy</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/iRESTORE_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/iRESTORE_Logo_Thumbnail.png" alt="iRESTORE" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">iRESTORE</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/JustFab_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/justfab_560x420.png" alt="JustFab" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">JustFab</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/Lively_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Lively.jpg" alt="Lively" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Lively</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-videos="Ecom-videos/Lumin_Ad_AE.mp4, Ecom-videos/ParkerUGC_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Lumin_560x420.png" alt="Lumin" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Lumin</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/MadisonReed__TeriHatcher_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Madison_Reed_Logo_560x420.png" alt="Madison Reed" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Madison Reed</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/MaryRuthOrganics_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/MaryRuthOrg_560x420.png" alt="MaryRuth Organics" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">MaryRuth Organics</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/NoomFemale_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/noom-logo_560x420.png" alt="Noom" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Noom</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/PastBook_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Pastbook_560x420.png" alt="Pastbook" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Pastbook</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/Prose_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/prose-logo_560x420.png" alt="Prose" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Prose</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/SNOW_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/SNOW-Logo_Horizontal_Blue_Thumbnail.png" alt="SNOW Teeth Whitening" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">SNOW Teeth Whitening</h4></div>
+        </div>
+        <div class="card grid-item favorite ecom-video-trigger" data-video="Ecom-videos/Truebill_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Truebill-New-Logo_560x420.png" alt="TrueBill" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">TrueBill</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/BerryStreet_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/berry-street_560x420.png" alt="Berry Street" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Berry Street</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Heading_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/HeadingLogo_560x420.png" alt="Heading" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Heading</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Measured_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/MeasuredLogo_560x420.png" alt="Measured" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Measured</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Outlier_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/OutlierLogo_560x420.png" alt="Outlier" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Outlier</h4></div>
+        </div>
+        <div class="card grid-item ecom-video-trigger" data-video="Ecom-videos/Saki_Ad_AE.mp4">
+          <div class="card__image"><img src="Images/Ecomm-Thumbnails/Logos_560x420/Saki_560x420.png" alt="Saki" loading="lazy"></div>
+          <div class="card__body"><h4 class="card__title">Saki</h4></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="video-modal">
+    <button class="video-modal__nav video-modal__nav--prev" id="video-prev" aria-label="Previous video">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <video id="video-player" controls>
+      <source src="" type="video/mp4">
+    </video>
+    <button class="video-modal__nav video-modal__nav--next" id="video-next" aria-label="Next video">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <span class="video-modal__counter" id="video-counter"></span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">Arie Eskinazi &middot; VinciVision LLC &middot; +1 (305) 206 2596</p>
+        <div class="site-footer__social">
+          <a href="https://www.linkedin.com/company/vincivision-llc?trk=public_profile_topcard-current-company" target="_blank" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
