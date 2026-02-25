@@ -381,6 +381,28 @@
   right: var(--space-lg);
 }
 
+.video-modal__close {
+  display: none;
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-white);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background-color var(--transition-fast);
+}
+
+.video-modal__close:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 .video-modal__counter {
   display: none;
   position: absolute;
@@ -399,7 +421,14 @@
 @media (max-width: 768px) {
   .video-modal video,
   .video-modal img#image-player {
-    max-width: 92vw;
+    max-width: 88vw;
+    max-height: 70vh;
+  }
+
+  .video-modal__close {
+    display: flex;
+    top: var(--space-md);
+    right: var(--space-md);
   }
 
   .video-modal__nav {

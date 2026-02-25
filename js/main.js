@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const mediaPrev = document.getElementById('video-prev');
   const mediaNext = document.getElementById('video-next');
   const mediaCounter = document.getElementById('video-counter');
+  const mediaClose = document.getElementById('video-close');
 
   var currentMedia = [];
   var currentMediaIndex = 0;
@@ -184,9 +185,17 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
+    // Close button
+    if (mediaClose) {
+      mediaClose.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeModal();
+      });
+    }
+
     // Close on backdrop click
     mediaModal.addEventListener('click', function (e) {
-      if (e.target === mediaModal || e.target.classList.contains('video-modal__close')) {
+      if (e.target === mediaModal) {
         closeModal();
       }
     });

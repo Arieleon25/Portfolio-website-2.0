@@ -326,7 +326,7 @@
 }
 
 @media (max-width: 480px) {
-  .ecom-grid { grid-template-columns: 1fr; }
+  .ecom-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Grid items that are hidden by filter */
