@@ -9,13 +9,16 @@
 # Repo tooling and docs
 .git
 .gitignore
+.claude
+.DS_Store
 .assetsignore
 .vscode
 .wrangler
 node_modules
 tools
-CLAUDE.md
-README.md
+# All markdown is internal documentation. Listing files individually let
+# ROLLBACK.md slip onto the public site, so match the extension instead.
+*.md
 wrangler.jsonc
 worker.js
 
