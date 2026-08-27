@@ -1,7 +1,12 @@
 # arieeskinazi.com — portfolio site
 
 Static multi-page site (plain HTML, CSS, vanilla JS). **No build step.**
-Deploys automatically to Cloudflare Pages on every push to `main`.
+Deploys automatically to Cloudflare Workers on every push to `main`.
+
+Cloudflare deprecated Pages for new projects in favour of Workers static
+assets, so this is a Worker that only serves files. `wrangler.jsonc` holds the
+config and `.assetsignore` lists what stays private (tooling, docs, the dead
+PHP file). Neither needs touching for normal content changes.
 
 ## How to ship a change
 
@@ -19,8 +24,8 @@ dragged into a file manager.
 
 | What | Where it lives | Why |
 |---|---|---|
-| HTML, CSS, JS, thumbnails | This repo → Cloudflare Pages | Small, versioned, changes often |
-| Portfolio videos, hero video, Unity game | Cloudflare R2 → `media.arieeskinazi.com` | Pages caps files at 25MB; these are far bigger |
+| HTML, CSS, JS, thumbnails | This repo → Cloudflare Workers | Small, versioned, changes often |
+| Portfolio videos, hero video, Unity game | Cloudflare R2 → `media.arieeskinazi.com` | Workers caps assets at 25MB per file; these are far bigger |
 
 R2 object keys **deliberately mirror the old site paths** (`Ecom-videos/X.mp4`),
 so the HTML still writes plain relative paths and only one constant decides

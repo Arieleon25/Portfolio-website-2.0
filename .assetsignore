@@ -1,0 +1,23 @@
+# Files in this repo that should NOT be published to the web.
+# Everything else in the repo root is served as a static asset.
+
+# Repo tooling and docs
+.git
+.gitignore
+.assetsignore
+.vscode
+tools
+CLAUDE.md
+README.md
+wrangler.jsonc
+
+# Dead PHP endpoint — cannot run on Workers, nothing posts to it
+submit-form.php
+
+# Design source files
+*.ai
+~ai-*.tmp
+
+# OS junk
+.DS_Store
+Thumbs.db

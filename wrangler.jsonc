@@ -1,0 +1,17 @@
+{
+  // Static-asset Worker for arieeskinazi.com.
+  //
+  // The site is plain HTML/CSS/JS with no build step, so this Worker does
+  // nothing but serve the repo as static files. Cloudflare runs
+  // `npx wrangler deploy` on every push to main and reads this config.
+  //
+  // Heavy media (videos, the Unity build, the hero loop) is NOT here. It
+  // lives in the R2 bucket "arieeskinazi-media" and is served from
+  // media.arieeskinazi.com. See CLAUDE.md.
+  "name": "portfolio-website-2-0",
+  "compatibility_date": "2026-08-27",
+  "assets": {
+    // Serve the repo root. Files listed in .assetsignore are excluded.
+    "directory": "./"
+  }
+}
