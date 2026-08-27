@@ -10,6 +10,7 @@ tools
 CLAUDE.md
 README.md
 wrangler.jsonc
+worker.js
 
 # Dead PHP endpoint — cannot run on Workers, nothing posts to it
 submit-form.php

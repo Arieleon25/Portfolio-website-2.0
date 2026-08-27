@@ -1,8 +1,7 @@
 {
   // Static-asset Worker for arieeskinazi.com.
   //
-  // The site is plain HTML/CSS/JS with no build step, so this Worker does
-  // nothing but serve the repo as static files. Cloudflare runs
+  // The site is plain HTML/CSS/JS with no build step. Cloudflare runs
   // `npx wrangler deploy` on every push to main and reads this config.
   //
   // Heavy media (videos, the Unity build, the hero loop) is NOT here. It
@@ -10,17 +9,24 @@
   // media.arieeskinazi.com. See CLAUDE.md.
   "name": "portfolio-website-2-0",
   "compatibility_date": "2026-08-27",
+
+  // Only handles "/" -> index.html. Everything else is a direct asset hit.
+  "main": "worker.js",
+
   "assets": {
     // Serve the repo root. Files listed in .assetsignore are excluded.
     "directory": "./",
 
+    // Lets worker.js reach the assets.
+    "binding": "ASSETS",
+
     // Serve /Page.html at exactly that URL, the way the old GoDaddy host did.
     // The default ("auto-trailing-slash") 307-redirects /Page.html to /Page,
     // which would rewrite every URL on the site and break saved and indexed
-    // links. Keep this as "none".
+    // links. Keep this as "none" — worker.js covers the "/" case it disables.
     "html_handling": "none",
 
-    // Unknown paths return the 404 page instead of a bare error.
+    // Unknown paths get the styled 404 page.
     "not_found_handling": "404-page"
   }
 }
