@@ -14,6 +14,14 @@
   // asset hit that never reaches this script.
   "main": "worker.js",
 
+  // Live domains. Both serve the same site, matching how the old host behaved.
+  // Attaching these rewrites the apex and www DNS records to point here.
+  "routes": [
+    { "pattern": "arieeskinazi.com", "custom_domain": true },
+    { "pattern": "www.arieeskinazi.com", "custom_domain": true }
+  ],
+
+
   "assets": {
     // Serve the repo root. Files listed in .assetsignore are excluded.
     "directory": "./",

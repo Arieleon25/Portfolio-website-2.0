@@ -1,16 +1,35 @@
-# Files in this repo that should NOT be published to the web.
+# Files that should NOT be published to the web.
 # Everything else in the repo root is served as a static asset.
+#
+# This must stay in sync with .gitignore. Cloudflare's CI build only sees
+# files committed to git, but `wrangler deploy` run locally sees everything
+# on disk — without these entries the two disagree and a local deploy fails
+# on oversized files that CI never sees.
 
 # Repo tooling and docs
 .git
 .gitignore
 .assetsignore
 .vscode
+.wrangler
+node_modules
 tools
 CLAUDE.md
 README.md
 wrangler.jsonc
 worker.js
+
+# Heavy media — served from R2, never from here (25MiB per-asset limit)
+Ecom-videos
+Ecom-videos-web
+Games
+Images/Default-Images/CameraVideo.mp4
+Images/Default-Images/CameraVideo-web.mp4
+
+# Dead template assets from the pre-2026 site, referenced only by two
+# orphaned pages. Contains files over the 25MiB asset limit.
+assets
+vendor
 
 # Dead PHP endpoint — cannot run on Workers, nothing posts to it
 submit-form.php
