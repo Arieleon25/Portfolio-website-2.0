@@ -22,6 +22,12 @@
   ],
 
 
+  // Heavy media lives in R2 but is served through this Worker on the site's own
+  // origin, so videos stay first-party. See worker.js for why that matters.
+  "r2_buckets": [
+    { "binding": "MEDIA", "bucket_name": "arieeskinazi-media" }
+  ],
+
   "assets": {
     // Serve the repo root. Files listed in .assetsignore are excluded.
     "directory": "./",
