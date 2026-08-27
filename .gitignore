@@ -33,3 +33,6 @@ Thumbs.db
 # Illustrator scratch files
 *.ai
 ~ai-*.tmp
+
+# Wrangler local state (contains account id / email)
+.wrangler/
