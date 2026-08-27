@@ -109,6 +109,18 @@ document.addEventListener('DOMContentLoaded', function () {
   var currentMediaIndex = 0;
   var currentMediaType = 'video'; // 'video' or 'image'
 
+  /* Clips this short are converted GIFs and similar loops. Playing one once
+     and freezing on the last frame reads as broken, so they repeat instead.
+     Applied by duration rather than by filename so future GIF conversions
+     pick it up automatically. */
+  var LOOP_UNDER_SECONDS = 6;
+
+  if (videoPlayer) {
+    videoPlayer.addEventListener('loadedmetadata', function () {
+      videoPlayer.loop = !!videoPlayer.duration && videoPlayer.duration < LOOP_UNDER_SECONDS;
+    });
+  }
+
   function loadMedia(index) {
     if (!currentMedia.length) return;
     currentMediaIndex = index;
@@ -123,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
       imagePlayer.style.display = 'none';
       imagePlayer.src = '';
       videoPlayer.style.display = 'block';
+      videoPlayer.loop = false;
       videoPlayer.src = currentMedia[index];
       videoPlayer.play();
     }
