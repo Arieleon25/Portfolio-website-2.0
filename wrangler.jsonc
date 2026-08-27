@@ -10,7 +10,8 @@
   "name": "portfolio-website-2-0",
   "compatibility_date": "2026-08-27",
 
-  // Only handles "/" -> index.html. Everything else is a direct asset hit.
+  // Handles "/" -> index.html and the 404 page. Everything else is a direct
+  // asset hit that never reaches this script.
   "main": "worker.js",
 
   "assets": {
@@ -23,10 +24,11 @@
     // Serve /Page.html at exactly that URL, the way the old GoDaddy host did.
     // The default ("auto-trailing-slash") 307-redirects /Page.html to /Page,
     // which would rewrite every URL on the site and break saved and indexed
-    // links. Keep this as "none" — worker.js covers the "/" case it disables.
-    "html_handling": "none",
+    // links.
+    "html_handling": "none"
 
-    // Unknown paths get the styled 404 page.
-    "not_found_handling": "404-page"
+    // NOTE: not_found_handling is intentionally omitted. Setting it makes the
+    // asset handler serve 404.html for any unmatched path *before* worker.js
+    // runs, which means "/" never reaches the homepage branch above.
   }
 }
