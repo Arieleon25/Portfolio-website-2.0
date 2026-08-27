@@ -16,9 +16,9 @@ git commit -m "what changed"
 git push
 ```
 
-That's the whole deploy. Cloudflare Pages picks up the push and the site is
-live in about 30 seconds. There is no FTP any more, and nothing needs to be
-dragged into a file manager.
+That's the whole deploy. Cloudflare picks up the push and the site is live in
+about 30 seconds. There is no FTP any more, and nothing needs to be dragged
+into a file manager.
 
 ## Architecture — why media is split out
 
@@ -83,9 +83,9 @@ Only needed for disaster recovery or a bucket change:
   and `E-commerce_webpage_old.html`. Neither is linked from anywhere on the
   live site. Safe to delete all four together; nothing else touches them.
 - **`submit-form.php` is dead code.** There is not a single `<form>` tag on the
-  site and nothing posts to it. It also cannot run on Pages, which is static
-  only. If a contact form is ever wanted, use Cloudflare Pages Functions or a
-  hosted form service.
+  site and nothing posts to it. It also cannot run on a static-asset Worker,
+  and `.assetsignore` keeps it off the public site. If a contact form is ever
+  wanted, add a Worker route or use a hosted form service.
 - **`E-commerce_webpage.html`** is just a meta-refresh redirect to
   `E-commerce_webpage-VV.html`. The `-VV` file is the real page.
 
