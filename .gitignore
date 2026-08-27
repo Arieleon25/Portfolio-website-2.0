@@ -1,9 +1,27 @@
-# Large media files (hosted separately / via Dropbox)
+# ---------------------------------------------------------------------------
+# Media lives in Cloudflare R2, not in this repo.
+#
+# Cloudflare Pages deploys this repo as-is, and caps files at 25MB. The video
+# library and the Unity build blow past that, so they are uploaded separately
+# with tools/upload-media.sh and served from media.arieeskinazi.com.
+#
+# Keep these ignored. Adding them back would bloat the repo and break deploys.
+# ---------------------------------------------------------------------------
+
+# Export masters (source of truth, kept locally in Dropbox)
 Ecom-videos/
+
+# Web-compressed copies produced by tools/ — these are what get uploaded to R2
+Ecom-videos-web/
+Images/Default-Images/CameraVideo.mp4
+Images/Default-Images/CameraVideo-web.mp4
+
+# Unity WebGL build (82MB .data file, served from R2)
 Games/
+
+# Dead template assets — only referenced by two orphaned pages, see CLAUDE.md
 assets/
 vendor/
-Images/Default-Images/CameraVideo.mp4
 
 # Claude Code internal
 .claude/
@@ -11,3 +29,7 @@ Images/Default-Images/CameraVideo.mp4
 # OS files
 .DS_Store
 Thumbs.db
+
+# Illustrator scratch files
+*.ai
+~ai-*.tmp

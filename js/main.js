@@ -90,6 +90,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---- E-Commerce Media Modal with Slider (videos + images) ---- */
+
+  /* Portfolio videos and statics are served from Cloudflare R2, not from this
+     site, because the reels are too large for the Pages 25MB-per-file limit.
+     Pages themselves keep using plain "Ecom-videos/..." paths; this is the one
+     place that turns them into absolute media-host URLs. To move the media
+     elsewhere, change this line and nothing else. */
+  const MEDIA_BASE = 'https://media.arieeskinazi.com/';
+
+  function resolveMedia(path) {
+    if (/^https?:\/\//i.test(path)) return path;
+    return MEDIA_BASE + path.replace(/^\/+/, '');
+  }
+
   const mediaContainers = document.querySelectorAll('.ecom-video-trigger');
   const mediaModal = document.getElementById('video-modal');
   const videoPlayer = document.getElementById('video-player');
@@ -154,10 +167,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (imageAttr) {
           currentMediaType = 'image';
-          currentMedia = imageAttr.split(',').map(function (v) { return v.trim(); });
+          currentMedia = imageAttr.split(',').map(function (v) { return resolveMedia(v.trim()); });
         } else if (videoAttr) {
           currentMediaType = 'video';
-          currentMedia = videoAttr.split(',').map(function (v) { return v.trim(); });
+          currentMedia = videoAttr.split(',').map(function (v) { return resolveMedia(v.trim()); });
         }
 
         currentMediaIndex = 0;
