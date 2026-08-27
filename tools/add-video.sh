@@ -19,6 +19,8 @@ CRF=26                     # quality: lower = better/bigger. 26 is the tuned def
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DST="$ROOT/Ecom-videos-web"
 
+source "$(dirname "${BASH_SOURCE[0]}")/wrangler-bin.sh"
+
 SRC="${1:-}"
 if [ -z "$SRC" ] || [ ! -f "$SRC" ]; then
   echo "Usage: ./tools/add-video.sh <path-to-video> [output-name.mp4]"
@@ -52,7 +54,7 @@ after=$(( $(stat -f%z "$OUT") / 1048576 ))
 echo "    ${before}MB -> ${after}MB"
 
 echo "==> Uploading to R2"
-if ! npx --yes wrangler@latest r2 object put "$BUCKET/Ecom-videos/$NAME" \
+if ! wrangler_run r2 object put "$BUCKET/Ecom-videos/$NAME" \
      --file="$OUT" --content-type="video/mp4" --remote; then
   echo "Error: upload failed. The compressed file is kept at:"
   echo "  $OUT"

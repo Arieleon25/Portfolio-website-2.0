@@ -19,6 +19,8 @@ WEB_VIDEOS="$ROOT/Ecom-videos-web"
 ORIG_VIDEOS="$ROOT/Ecom-videos"
 GAMES="$ROOT/Games"
 
+source "$(dirname "${BASH_SOURCE[0]}")/wrangler-bin.sh"
+
 ok=0
 fail=0
 failed_files=()
@@ -47,12 +49,14 @@ put() {
 
   printf "  %-52s %4sMB ... " "$key" "$size"
 
-  if npx --yes wrangler@latest r2 object put "$BUCKET/$key" \
-       --file="$file" --content-type="$ct" --remote >/dev/null 2>&1; then
+  local err
+  if err=$(wrangler_run r2 object put "$BUCKET/$key" \
+             --file="$file" --content-type="$ct" --remote 2>&1); then
     echo "ok"
     ok=$((ok+1))
   else
     echo "FAILED"
+    echo "$err" | tail -3 | sed 's/^/      /'
     fail=$((fail+1))
     failed_files+=("$key")
   fi

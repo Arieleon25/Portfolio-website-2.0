@@ -12,6 +12,15 @@
   "compatibility_date": "2026-08-27",
   "assets": {
     // Serve the repo root. Files listed in .assetsignore are excluded.
-    "directory": "./"
+    "directory": "./",
+
+    // Serve /Page.html at exactly that URL, the way the old GoDaddy host did.
+    // The default ("auto-trailing-slash") 307-redirects /Page.html to /Page,
+    // which would rewrite every URL on the site and break saved and indexed
+    // links. Keep this as "none".
+    "html_handling": "none",
+
+    // Unknown paths return the 404 page instead of a bare error.
+    "not_found_handling": "404-page"
   }
 }
